@@ -17,7 +17,7 @@ use App\Http\Controllers\GroupController;
 */
 
 Route::get('/', function () {
-    return view('employee.index');
+    return view('layouts.layout');
 });
 
 Route::resource('employee', EmployeeController::class);

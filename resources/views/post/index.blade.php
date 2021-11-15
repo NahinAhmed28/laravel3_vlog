@@ -37,13 +37,6 @@
         </table>
     </div>
 
-    <a href="{{route('device.index')}}" style="float: right" class="btn btn-dark btn-sm m-2" title="Go to device info">
-        <i class="fa fa-plus" aria-hidden="true"></i> Device info
-    </a>
 
-    <a href="{{route('group.index')}}" style="float: right" class="btn btn-warning btn-sm m-2" title="Go to group info">
-        <i class="fa fa-plus" aria-hidden="true"></i> Group info
-    </a>
-    <br/>
     <br/>
 @endsection

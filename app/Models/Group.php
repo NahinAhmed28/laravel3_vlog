@@ -12,10 +12,6 @@ class Group extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function employees():HasOne
-    {
-        return $this->hasOne(Employee::class);
-    }
 
     public function setNameAttribute( $value)
     {
