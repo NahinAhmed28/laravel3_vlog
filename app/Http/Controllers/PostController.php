@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Device;
+use App\Models\Post;
+use Illuminate\Http\Request;
 
-class DeviceController extends Controller
+class PostController extends Controller
 {
-    public function __construct(Device $device)
+    public function __construct(Post $post)
     {
-        $this->model = $device;
+        $this->model = $post;
     }
     /**
      * Display a listing of the resource.
@@ -18,9 +19,8 @@ class DeviceController extends Controller
      */
     public function index()
     {
-
-        $devices = Device::all();
-        return view('device.index' , compact('devices') );
+        $posts = Post::all();
+        return view('post.index' , compact('posts') );
     }
 
     /**
@@ -30,7 +30,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        return view ('device.create');
+        return view ('post.create');
     }
 
     /**
@@ -43,18 +43,19 @@ class DeviceController extends Controller
     {
         $query= $this->model->create([
 
-            'device_name'=>$request->device_name,
-            'amount'=>$request->amount,
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'salary'=>$request->salary,
 
 
         ]);
 
         if ($query)
         {
-            return redirect()->route('device.index');
+            return redirect()->route('post.index');
         }else
         {
-            return redirect()->route('device.create');
+            return redirect()->route('post.create');
 
         }
     }
@@ -62,10 +63,10 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
         //
     }
@@ -73,10 +74,10 @@ class DeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }
@@ -85,10 +86,10 @@ class DeviceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -96,10 +97,10 @@ class DeviceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
         //
     }

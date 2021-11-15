@@ -19,6 +19,8 @@
                 <th>Address</th>
                 <th>Education</th>
                 <th>Device</th>
+                <th>Post</th>
+                <th>Group</th>
                 <th>Created at</th>
 
             </tr>
@@ -33,6 +35,8 @@
                     <td>{{ $employee->address }}</td>
                     <td>{{ $employee->education }}</td>
                     <td>{{$employee->getDeviceName($employee->device_id)}}</td>
+                    <td>{{$employee->getPostName($employee->post_id)}}</td>
+                    <td>{{$employee->getGroupName($employee->group_id)}}</td>
                     <td>{{ \Carbon\Carbon::parse($employee->created_at)->diffForHumans() }}</td>
 
 
@@ -43,9 +47,14 @@
         </table>
     </div>
 
-    <a href="{{route('device.index')}}" style="float: right" class="btn btn-success btn-sm" title="Go to device info">
-        <i class="fa fa-plus" aria-hidden="true"></i> Go to device info
+    <a href="{{route('device.index')}}" style="float: right" class="btn btn-dark btn-sm m-2" title="Go to device info">
+        <i class="fa fa-plus" aria-hidden="true"></i> Device info
     </a>
-    <br/>
-    <br/>
+
+    <a href="{{route('post.index')}}" style="float: right" class="btn btn-info btn-sm m-2" title="Go to post info">
+        <i class="fa fa-plus" aria-hidden="true"></i> Post info
+    </a>
+    <a href="{{route('group.index')}}" style="float: right" class="btn btn-warning btn-sm m-2" title="Go to group info">
+        <i class="fa fa-plus" aria-hidden="true"></i> Group info
+    </a>
 @endsection

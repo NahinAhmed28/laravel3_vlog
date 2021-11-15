@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\GroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +22,7 @@ Route::get('/', function () {
 
 Route::resource('employee', EmployeeController::class);
 Route::resource('device', DeviceController::class);
+Route::resource('post', PostController::class);
+Route::resource('group', GroupController::class);
 
 

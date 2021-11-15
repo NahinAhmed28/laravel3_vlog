@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Device;
+use App\Models\Group;
 
-class DeviceController extends Controller
+use Illuminate\Http\Request;
+
+class GroupController extends Controller
 {
-    public function __construct(Device $device)
+    /**
+     * @var Group
+     */
+
+
+    public function __construct(Group $group)
     {
-        $this->model = $device;
+        $this->model = $group;
     }
     /**
      * Display a listing of the resource.
@@ -18,9 +24,8 @@ class DeviceController extends Controller
      */
     public function index()
     {
-
-        $devices = Device::all();
-        return view('device.index' , compact('devices') );
+        $groups = Group::all();
+        return view('group.index' , compact('groups') );
     }
 
     /**
@@ -30,7 +35,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        return view ('device.create');
+        return view ('group.create');
     }
 
     /**
@@ -43,18 +48,17 @@ class DeviceController extends Controller
     {
         $query= $this->model->create([
 
-            'device_name'=>$request->device_name,
-            'amount'=>$request->amount,
-
+            'name'=>$request->name,
+            'description'=>$request->description
 
         ]);
 
         if ($query)
         {
-            return redirect()->route('device.index');
+            return redirect()->route('group.index');
         }else
         {
-            return redirect()->route('device.create');
+            return redirect()->route('group.create');
 
         }
     }
@@ -62,10 +66,10 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Group $group)
     {
         //
     }
@@ -73,10 +77,10 @@ class DeviceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Group $group)
     {
         //
     }
@@ -85,10 +89,10 @@ class DeviceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Group $group)
     {
         //
     }
@@ -96,10 +100,10 @@ class DeviceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Group $group)
     {
         //
     }

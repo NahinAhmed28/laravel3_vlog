@@ -31,11 +31,31 @@
 
 <br>
         <div class="col-md-6 mb-3">
-            <label for="device">Devices</label>
-            <select class="custom-select" id="inputGroupSelect03">
+            <label for="device_id">Devices</label>
+            <select class="custom-select" id="inputGroupSelect03" name="device_id">
                 <option selected>Choose...</option>
                 @foreach($devices as $device)
                     <option value="{{$device->id}}">{{$device->device_name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="device">Post</label>
+            <select class="custom-select" id="inputGroupSelect03" name="post_id">
+                <option selected>Choose...</option>
+                @foreach($posts as $post)
+                    <option value="{{$post->id}}">{{$post->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="device">Group</label>
+            <select class="custom-select" id="inputGroupSelect03" name="group_id">
+                <option selected>Choose...</option>
+                @foreach($groups as $group)
+                    <option value="{{$group->id}}">{{$group->name}}</option>
                 @endforeach
             </select>
         </div>
