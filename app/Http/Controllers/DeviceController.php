@@ -9,6 +9,7 @@ class DeviceController extends Controller
 {
     public function __construct(Device $device)
     {
+        $this->middleware('auth');
         $this->model = $device;
     }
     /**

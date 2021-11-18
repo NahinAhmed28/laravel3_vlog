@@ -4,18 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use DB;
 
 class UserController extends Controller
 {
+    protected  $model;
+
+    public function __construct(User $user){
+        $this->middleware('auth');
+        $this->model=$user;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function login(){
+
+    }
+
     public function index()
     {
         $users = DB::select("select * from users");
-        return view('user.index' , compact('users') );
+        return view('home' , compact('users') );
     }
 
     /**
@@ -25,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view ('user.create');
+       //
     }
 
     /**
@@ -34,9 +45,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function register(Request $request)
     {
-        //
+        $query= $this->model->create([
+
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>$request->password
+
+        ]);
+
+        if ($query)
+        {
+            return redirect()->route('user.index');
+        }else
+        {
+            return redirect()->route('login');
+
+        }
     }
 
     /**

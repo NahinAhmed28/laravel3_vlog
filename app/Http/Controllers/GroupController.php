@@ -15,6 +15,7 @@ class GroupController extends Controller
 
     public function __construct(Group $group)
     {
+        $this->middleware('auth');
         $this->model = $group;
     }
     /**

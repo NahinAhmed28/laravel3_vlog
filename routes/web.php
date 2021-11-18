@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +18,33 @@ use App\Http\Controllers\GroupController;
 */
 
 Route::get('/', function () {
-    return view('layouts.layout');
+    return view('home');
 });
 
 Route::resource('employee', EmployeeController::class);
 Route::resource('device', DeviceController::class);
 Route::resource('post', PostController::class);
 Route::resource('group', GroupController::class);
+Route::resource('user', UserController::class);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

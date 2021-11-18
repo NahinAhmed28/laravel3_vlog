@@ -1,19 +1,20 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 
     <a href="{{route('employee.create')}}" style="float: right" class="btn btn-success btn-sm" title="Add New Employee">
-        <i class="fa fa-plus" aria-hidden="true"></i> Add New Employee
+        @include('layouts.rightarrow') <i class="fa fa-plus" aria-hidden="true"></i> Add New Employee
     </a>
     <br/>
     <br/>
 
 
 {{--    show user table--}}
+    <x-header componentName="Employee" />
     <div class="table-responsive">
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>

@@ -24,6 +24,7 @@ class EmployeeController extends Controller
 
     public function __construct(Employee $employee,Device $device, Post $post, Group $group )
     {
+        $this->middleware('auth');
         $this->model = $employee;
         $this->deviceModel = $device;
         $this->postModel = $post;

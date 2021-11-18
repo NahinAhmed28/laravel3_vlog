@@ -1,19 +1,23 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 
     <a href="{{route('device.create')}}" style="float: right" class="btn btn-success btn-sm" title="Add New Device">
-        <i class="fa fa-plus" aria-hidden="true"></i> Add New Device
+        @include('layouts.rightarrow') <i class="fa fa-plus" aria-hidden="true"></i> Add New Device
     </a>
-    <br/>
-    <br/>
 
+
+
+
+    <br/>
+    <br/>
+    <x-header componentName="Device " />
 
 {{--    show user table--}}
     <div class="table-responsive">
         <table class="table">
             <thead>
             <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Device Name</th>
                 <th>Device amount</th>
                 <th>Created at</th>

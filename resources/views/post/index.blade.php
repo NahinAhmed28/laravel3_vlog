@@ -1,14 +1,15 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
 
     <a href="{{route('post.create')}}" style="float: right" class="btn btn-success btn-sm" title="Add New post">
-        <i class="fa fa-plus" aria-hidden="true"></i> Add New Post
+        @include('layouts.rightarrow') <i class="fa fa-plus" aria-hidden="true"></i> Add New Post
     </a>
     <br/>
     <br/>
 
 
 {{--    show user table--}}
+    <x-header componentName="Group" />
     <div class="table-responsive">
         <table class="table">
             <thead>
