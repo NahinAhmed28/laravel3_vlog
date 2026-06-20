@@ -1,14 +1,25 @@
 # Laravel 3 Vlog
 
-Laravel 3 Vlog is a Laravel-based vlog or blog application project. It is focused on building a content-management workflow around posts, media, and application pages.
+Laravel 3 Vlog is a Laravel content application for vlog/blog-style publishing workflows.
 
-## Project Details
+## Features
 
-- Repository: `NahinAhmed28/laravel3_vlog`
-- Default branch: `master`
-- Visibility: public
-- Project type: Laravel content application
-- Main focus: vlog/blog-style content features
+- Content posting and management foundation
+- Laravel backend for routes, controllers, and models
+- Database-backed posts or media records
+- Admin-ready extension path
+
+## Modules
+
+- Content module: posts, categories, media, and page content
+- Admin module: protected management screens when enabled
+- User module: authentication or author profiles when implemented
+- Media module: uploads, storage, and display assets
+- Data module: migrations, models, and seeders
+
+## System Architecture
+
+The project follows Laravel MVC structure. Public routes display content, admin routes manage records, controllers coordinate content workflows, and models persist posts/media in the database. Storage can hold uploaded files and Vite/npm assets support the UI.
 
 ## Getting Started
 
@@ -22,13 +33,3 @@ npm install
 npm run dev
 php artisan serve
 ```
-
-Configure `.env` for database, storage, and app URL settings before running migrations.
-
-```bash
-php artisan migrate
-```
-
-## Notes
-
-Add the exact modules, admin features, upload requirements, and screenshots as the project develops.
